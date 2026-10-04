@@ -13,12 +13,15 @@ jobs:
         with:
           flutter-version: '3.19.6'
           channel: 'stable'
+      - name: Check folders
+        run: ls -la
       - name: Build
         run: |
+          cd live_audio_room
           flutter pub get
           flutter build apk --release
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: LamaShpawa-APK
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: live_audio_room/build/app/outputs/flutter-apk/app-release.apk
