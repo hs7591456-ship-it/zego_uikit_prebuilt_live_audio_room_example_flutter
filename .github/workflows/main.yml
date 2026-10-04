@@ -11,11 +11,13 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.6'
+          flutter-version: '3.22.3'
           channel: 'stable'
-      - name: Check folders
-        run: ls -la
-      - name: Build
+      - name: Fix Kotlin and Gradle
+        run: |
+          sed -i "s/ext.kotlin_version = '.*'/ext.kotlin_version = '1.9.22'/" live_audio_room/android/build.gradle
+          cat live_audio_room/android/build.gradle | grep kotlin
+      - name: Build APK
         run: |
           cd live_audio_room
           flutter pub get
