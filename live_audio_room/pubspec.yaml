@@ -1,35 +1,27 @@
 name: live_audio_room
 description: A new Flutter project.
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: 'none'
 version: 1.2.0+1
 
 environment:
-  sdk: ">=2.16.2 <4.0.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
-  zego_uikit: ^2.28.23
-  zego_uikit_prebuilt_live_audio_room: ^3.16.3
-
-  cupertino_icons: ^1.0.2
-  dotted_border: ^2.0.0
-  flutter_screenutil: ">=5.5.3+2 <5.6.1"
+  zego_uikit: ^3.1.0
+  zego_uikit_prebuilt_live_audio_room: ^3.17.3
+  cupertino_icons: ^1.0.8
+  dotted_border: ^2.1.0
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^3.0.0
-  import_sorter: ^4.6.0  # run 'flutter pub run import_sorter:main'
-
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
-
   assets:
     - assets/images/
     - assets/avatars/
