@@ -11,17 +11,15 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.22.0'
           channel: 'stable'
-      - name: Pub get
-        run: flutter pub get
-        working-directory: live_audio_room
-      - name: Build APK
-        run: flutter build apk --release --verbose
-        working-directory: live_audio_room
-      - name: Upload APK
-        if: success()
-        uses: actions/upload-artifact@v4
+      - name: Fix Old Kotlin Version
+        run: |
+          sed -i "s/ext.kotlin_version = '.*'/ext.kotlin_version = '1.9.22'/" android/build.gradle
+          cat android/build.gradle
+      - run: flutter pub get
+      - run: flutter build apk --release --verbose
+      - uses: actions/upload-artifact@v4
         with:
           name: LamaShpawa-APK
-          path: live_audio_room/build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
